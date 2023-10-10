@@ -46,7 +46,18 @@
 </details>
 
 
-
-<details>Makerchip</details>
-
 <summary>Makerchip</summary>
+
+<details>
+
+- An online platform and integrated development environment (IDE) designed for digital design and hardware description language development.
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/df180a0c-6323-4327-a829-957e573b1175)
+
+- Log file - to provide a historical record of what happened during the execution of Makerchip, thus helpful for diagnosing issues, understanding the sequence of events, and ensuring that your digital designs are behaving as expected.
+
+- A Pythagorean example
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/5aee2572-463e-4230-9587-0e0d940d1d10)
+  
+</details>
