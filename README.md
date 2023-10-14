@@ -173,6 +173,6 @@
 - $UPPER_CASE: keyword signal
 - $base64_value: good
 - $bad_name_5: bad
-- >>1: ahead by 1
+- `>>1`: ahead by 1
   
 </details>
