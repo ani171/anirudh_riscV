@@ -86,6 +86,27 @@
 
 ![image](https://github.com/ani171/anirudh_riscV/assets/97838595/864c6474-a49e-4f28-938a-9f4fb33c50a6)
 
+</details>
 
+<summary>Sequential Logic </summary>
+
+<details>
+
+- Sequential Logic is sequenced by a clock signal
+- D-flipflop
+  - Q Output: This is the main output of the flip-flop and represents the state of the D input at the last clock edge. It reflects the data stored in the flip-flop.
+  - Q' (Q-bar) Output: This is the complement of the Q output. If Q is 1, then Q' is 0, and vice versa.
+  - The D flip-flop also has a Reset input that can be used to reset the flip-flop to a specific state.
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/b55393e5-a0cc-4823-99e5-1aa09f38c2f3)
+
+- Fibonacci Series
+  - 1,1,2,3,5,8,13,....
+  - `$val[15:0] = $reset ? 1 : >>1$val + >>2$val`
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/1ba11e1d-654d-4dc1-8679-fd4cb59cd644)
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/19f7bb02-265d-4a7b-b199-e42927bd88ec)
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/0b1a1e46-1cbf-4ccb-8ffc-ae2b1f52c7b2)
 
 </details>
