@@ -123,7 +123,7 @@
 
 ![image](https://github.com/ani171/anirudh_riscV/assets/97838595/701e4bfb-7f6d-4a04-96bf-7dec632183c3)
 
-- In TLV this division can be accessed via timing abstarct
+- In TLV this division can be accessed via the timing abstract
 
 ![image](https://github.com/ani171/anirudh_riscV/assets/97838595/bdbdc2ab-5b7f-415c-a2a3-8a575375100e)
 
@@ -139,7 +139,7 @@
 
 ![image](https://github.com/ani171/anirudh_riscV/assets/97838595/93a9d438-94d3-4ed9-b705-c737204a93a1)
 
-- for
+- for the below case
 ```
    |calc
       
