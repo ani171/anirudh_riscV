@@ -157,8 +157,10 @@
 - TL-Verilog is at a higher level of abstraction than SystemVerilog or VHDL and allows for more concise and expressive descriptions of digital circuits.
 <br>
 - Advantages of Pipelining
-  -  In a non-pipelined system, an operation may take several clock cycles to complete. With pipelining, each stage of the operation is performed in one clock cycle. Therefore, by combining pipelining with a higher clock frequency, you can significantly reduce the time it takes to complete an operation.
-  -  Pipelining allows multiple stages of an operation to be executed in parallel. Each stage can be completed in a shorter time, which means that the overall operation can be completed more quickly. This increased throughput can be leveraged in combination with a higher clock frequency to process more operations per unit of time.
+
+  - In a non-pipelined system, an operation may take several clock cycles to complete. With pipelining, each stage of the operation is performed in one clock cycle. Therefore, by combining pipelining with a higher clock frequency, you can significantly reduce the time it takes to complete an operation.
+  - Pipelining allows multiple stages of an operation to be executed in parallel. Each stage can be completed in a shorter time, which means that the overall operation can be completed more quickly. This increased throughput can be leveraged in combination with a higher clock frequency to process more operations per unit of time.
+    
 
 </details>
 
