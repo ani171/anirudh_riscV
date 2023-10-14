@@ -110,3 +110,69 @@
 ![image](https://github.com/ani171/anirudh_riscV/assets/97838595/0b1a1e46-1cbf-4ccb-8ffc-ae2b1f52c7b2)
 
 </details>
+
+<summary> Pipelined logic </summary>
+
+<details>
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/bca318c1-02f7-4ef8-aa75-b6dbfa20f47e)
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/ca33cb62-ef6f-46c9-83b0-4254aee5a969)
+
+- Distributing this calculation over three cycles, as the logic is too deep to fit into a single cycle
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/701e4bfb-7f6d-4a04-96bf-7dec632183c3)
+
+- In TLV this division can be accessed via timing abstarct
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/bdbdc2ab-5b7f-415c-a2a3-8a575375100e)
+
+```
+   @1
+      $aa_sq[31:0] = $aa * $aa;
+      $bb_sq[31:0] = $bb * $bb;
+   @2
+      $cc_sq[31:0] = $aa_sq + $bb_sq;
+   @3
+      $cc[31:0] = sqrt($cc_sq);
+```
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/93a9d438-94d3-4ed9-b705-c737204a93a1)
+
+- for
+```
+   |calc
+      
+      @0
+         $aa_sq[7:0] = $aa[3:0] ** 2;
+         $bb_sq[7:0] = $bb[3:0] ** 2;
+      @2
+         $cc_sq[8:0] = $aa_sq + $bb_sq;
+      @4
+         $cc[4:0] = sqrt($cc_sq);
+```
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/223bd1ef-514d-487c-b5e2-834182cd6a37)
+
+- TL-Verilog is at a higher level of abstraction than SystemVerilog or VHDL and allows for more concise and expressive descriptions of digital circuits.
+<br>
+- Advantages of Pipelining
+  -  In a non-pipelined system, an operation may take several clock cycles to complete. With pipelining, each stage of the operation is performed in one clock cycle. Therefore, by combining pipelining with a higher clock frequency, you can significantly reduce the time it takes to complete an operation.
+  -  Pipelining allows multiple stages of an operation to be executed in parallel. Each stage can be completed in a shorter time, which means that the overall operation can be completed more quickly. This increased throughput can be leveraged in combination with a higher clock frequency to process more operations per unit of time.
+
+</details>
+
+<summary>Identifiers</summary>
+
+<details>
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/4c1eae50-e4db-4830-9b11-1b82ab303d0c)
+
+- $lower_case : pipe signal
+- $CamelCase: state signal
+- $UPPER_CASE: keyword signal
+- $base64_value: good
+- $bad_name_5: bad
+- >>1: ahead by 1
+  
+</details>
