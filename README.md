@@ -59,5 +59,33 @@
 - A Pythagorean example
 
 ![image](https://github.com/ani171/anirudh_riscV/assets/97838595/5aee2572-463e-4230-9587-0e0d940d1d10)
-  
+
+- Inverter
+
+ ![image](https://github.com/ani171/anirudh_riscV/assets/97838595/91bc303d-d8a3-4322-a403-af47f4b8f6d2)
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/940d4deb-abeb-4129-b6eb-ab46ce7e20c9)
+
+- AND Gate
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/a1cd5603-1301-48f5-9399-29c95e784a7f)
+
+ - Arithmetic Operations (using vectors)
+
+`$out [4:0] = $in1[3:0] + $in2 [3:0]`
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/8ee419f6-37de-4ed4-a579-9b537651a361)
+
+- Multiplexer
+
+`$out = $sel ? $in1: $in2 `
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/5ec6ec2a-66da-4d5a-a64e-ced983832a38)
+
+`$out[7:0] = $sel ? $in1 [7:0]: $in2[7:0]`
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/864c6474-a49e-4f28-938a-9f4fb33c50a6)
+
+
+
 </details>
