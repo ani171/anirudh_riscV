@@ -160,7 +160,60 @@
 
   - In a non-pipelined system, an operation may take several clock cycles to complete. With pipelining, each stage of the operation is performed in one clock cycle. Therefore, by combining pipelining with a higher clock frequency, you can significantly reduce the time it takes to complete an operation.
   - Pipelining allows multiple stages of an operation to be executed in parallel. Each stage can be completed in a shorter time, which means that the overall operation can be completed more quickly. This increased throughput can be leveraged in combination with a higher clock frequency to process more operations per unit of time.
-    
+
+- Counter and Calculator
+```
+\TLV
+   
+   |calc
+      @1
+         $reset = *reset;
+         $cnt[1:0] = $reset ? (0) : (>>1$cnt[1:0] + 1) ;
+         
+         $val1[31:0] = >>1$out;
+         $val2[31:0] = $rand1[3:0];
+         $sum = $val1 + $val2;
+         $diff = $val1 - $val2;
+         $prod = $val1 * $val2;
+         $quot = $val1 / $val2;
+         $out = $reset ? ( $op[1]?($op[0] ? $quot : $prod):($op[0] ? $diff : $sum) ) : 0;
+   
+   // $out = op[1]?(op[0] ? $quot : $prod):(op[0] ? $diff : $sum);
+```
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/f4be39a0-7917-4bd9-9521-2be17dc9df8b)
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/b512be11-adda-448f-aee5-8370340e3271)
+
+- 2-cycle calculator
+```
+\TLV
+   
+   |calc
+      @1
+         $val1[31:0] = >>2$out;
+         $val2[31:0] = $rand1[3:0];
+         $sum[31:0] = $val1[31:0] + $val2[31:0];
+         $diff[31:0] = $val1[31:0] - $val2[31:0];
+         $prod[31:0] = $val1[31:0] * $val2[31:0];
+         $quot[31:0] = $val1[31:0] / $val2[31:0];
+         
+
+      @2
+         $reset = *reset;
+         $valid = $reset ? (0) : (>>1$valid + 1) ;
+         $op[1:0] = $reset | $valid ;
+         $out[32:0] = $op[1] ? ($op[0] ? $quot[31:0] : $prod[31:0]) : ($op[0] ? $diff[31:0] : $sum[31:0]) ;
+   // $out = op[1]?(op[0] ? $quot : $prod):(op[0] ? $diff : $sum);
+   
+   
+   
+   // Assert these to end simulation (before Makerchip cycle limit).
+   *passed = *cyc_cnt > 40;
+   *failed = 1'b0;
+```
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/1983be7a-fdfe-46ed-83c3-7d5bab30c2fa)
+
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/99ca19d1-f6f3-4658-a439-af4b328cddb1)
+
 
 </details>
 
@@ -177,4 +230,32 @@
 - $bad_name_5: bad
 - `>>1`: ahead by 1
   
+</details>
+
+<summary>Validity</summary>
+
+<details>
+
+-  Advantages of design validity
+  - Easier Debug: helps identify and fix issues or bugs in a digital system before it's implemented in hardware
+  - Cleaner Design: Verification processes often involve writing test benches, creating formal specifications, and documenting the design's behavior. This leads to a more structured and cleaner design.
+  - Better Error Checking: Through verification, you can systematically check your design against expected behaviors and requirements. Error-checking mechanisms, such as assertions and formal methods, can be used to validate the design's correctness.
+  - Automated Clock Gating: used to reduce power consumption in digital systems by selectively disabling clock signals to unused or idle components.
+
+- Clock gating
+  - Clock gating is a power-saving technique in digital design.
+  - It selectively enables clock signals only when necessary, saving power during clock distribution.
+  - In conventional systems, clocks are distributed to every flip-flop, causing power consumption as clocks toggle twice per cycle.
+  - Clock gating avoids unnecessary clock toggles, optimizing power usage.
+  - This technique contributes to more energy-efficient digital systems.
+
+- Makerchip file structure
+  - m5_TLV_version 1d: The version of Makerchip and potentially TL-Verilog being used
+  - tl-x.org: Web address that leads to documentation and resources related to TL-Verilog
+  - m5: described as a macro language used for processing. In the context of digital design, macros can be used to automate repetitive tasks and streamline the design process
+  - m5_makerchip_module: This term indicates a module or component in Makerchip that expands the inputs and outputs in the NAV file
+  - \sv: This typically stands for SystemVerilog codes
+
+
+
 </details>
