@@ -256,6 +256,39 @@
   - m5_makerchip_module: This term indicates a module or component in Makerchip that expands the inputs and outputs in the NAV file
   - \sv: This typically stands for SystemVerilog codes
 
+- Distance accumulator
+  - This is a component or mechanism added to a pipeline to keep track of the accumulated distances during a series of valid transactions.
+  - Each valid transaction within the pipeline represents a hop
+  - $aa represents the distance associated with the forward movement of a hop. It could be the distance traveled in a straight line.
+  - $bb represents the lateral distance, which is often the distance traveled perpendicular to the forward movement.
+  - $cc is the computed total distance for a hop. It's the sum of both the forward-facing and lateral distances, providing the overall distance traveled in that hop.
+  - The accumulator in the pipeline continuously adds up the $cc values from each valid transaction, providing a running total distance.
+  - This accumulation allows you to keep track of the total distance traveled as you process each hop.
+ 
+![image](https://github.com/ani171/anirudh_riscV/assets/97838595/f40f8475-726d-4dc0-862a-ed067701f537)
+
+```
+\SV
+`include "sqrt32.v";
+
+\TLV
+   $reset = *reset;
+   
+   |calc
+      @1
+         $reset = *reset ;
+      ?$valid
+         @1
+            $aa_sq[31:0] = $aa * $aa;
+            $bb_sq[31:0] = $bb * $bb;
+
+         @2
+            $cc_sq[31:0] = $aa_sq + $bb_sq;
+         @3
+            $cc[31:0] = sqrt($cc_sq);
+      @4
+         $tot_dst = $reset ? 0 : ($valid ? >>1$tot_dst + $cc : >>1$tot_dst) ;
+```
 
 
 </details>
