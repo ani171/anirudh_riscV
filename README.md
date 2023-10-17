@@ -1,6 +1,6 @@
 # anirudh_riscV
 
-## Digital Logic with TL-Verilog and Makerchip
+# Digital Logic with TL-Verilog and Makerchip
 
 <summary>Logic Gates</summary>
 
